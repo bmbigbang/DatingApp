@@ -30,6 +30,16 @@
             "name": ".NET Core Attach",
             "type": "coreclr",
             "request": "attach"
+        },
+        {
+            "name": "client local serve",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/client",
+            "runtimeExecutable": "ng",
+            "runtimeArgs": [
+                "serve"
+            ],
         }
     ]
 }
