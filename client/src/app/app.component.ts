@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavComponent } from "./nav/nav.component";
+import { LoginResponse, User } from './types';
+import { AccountService } from './_services/account.service';
 
 @Component({
     selector: 'app-root',
@@ -13,13 +15,18 @@ import { NavComponent } from "./nav/nav.component";
 })
 export class AppComponent implements OnInit {
   title = 'Dating App';
-  users: any;
+  users: User[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private accountService: AccountService) {
   }
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/users').subscribe({
+    this.setCurrentUser();
+    this.getUsers();
+  }
+
+  getUsers() {
+    this.http.get<User>('https://localhost:5001/api/users').subscribe({
       next: (response: any) => {
         this.users = response;
       },
@@ -28,5 +35,12 @@ export class AppComponent implements OnInit {
       },
       complete: () => {}
     })
+  }
+
+  setCurrentUser() {
+    const loginDetails: LoginResponse = JSON.parse(localStorage.getItem('loginDetails') || '{}');
+    if (loginDetails.username) {
+      this.accountService.setCurrentUser(loginDetails);
+    }
   }
 }
