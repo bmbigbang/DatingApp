@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+    <h1>Dating App</h1>
+    <span width="20px"></span>
+    <button mat-button extended aria-label="Matches">
+        <span>Matches</span>
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-button extended aria-label="Lists">
+        <span>Lists</span>
+        <mat-icon>menu</mat-icon>
+    </button>
+    <button mat-button extended aria-label="Messages">
+        <span>Messages</span>
+        <mat-icon>message</mat-icon>
+    </button>
+    <span class="example-spacer"></span>
+    @if (user) {
+        <button mat-icon-button aria-label="User">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    } @else {
+        <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()" autocomplete="off">
+            <mat-form-field>
+              <input formControlName="username" matInput type="text" placeholder="Username" required>
+            </mat-form-field>
+          
+            <mat-form-field>
+              <input formControlName="password" matInput type="password" placeholder="Password" required>
+            </mat-form-field>
+
+            <button mat-raised-button type="submit" aria-label="Submit">
+                <span>Submit</span>
+            </button>
+        </form>
+    }
+
+</mat-toolbar>
