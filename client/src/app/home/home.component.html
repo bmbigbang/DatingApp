@@ -1,0 +1,14 @@
+<div class="home">
+    @if (!signUp) {
+        <div class="first">
+            <h1>Sign up and find your match today!</h1>
+            <p>Connect with tens of other singles around you...</p>
+            <div>
+                <button mat-raised-button color="primary" (click)="signUpClickHandler()">Sign up</button>
+                <button mat-raised-button color="primary" style="margin-inline-start: 8px;">Learn More</button>
+            </div>
+        </div>
+    } @else {
+        <app-register [usersFromHomeComponent]="users" (cancelRegister)="cancelRegisterMode($event)"></app-register>
+    }
+</div>

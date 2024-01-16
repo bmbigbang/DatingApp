@@ -12,3 +12,8 @@ export type User = {
     id: string;
     userName: string;
 }
+
+export type RegistrationRequest = {
+    userName: string;
+    password: string;
+}

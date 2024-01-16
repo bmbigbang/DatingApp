@@ -1,0 +1,37 @@
+<div class="registeration-form">
+    <form [formGroup]="registrationForm" class="signup-form" (ngSubmit)="register()" autocomplete="off">
+        <div class="row">
+            <div>
+                <mat-form-field>
+                    <input formControlName="userName" matInput type="text" placeholder="Username" required>
+                </mat-form-field>
+            </div>
+
+            <h4>Who is your favourite user?</h4>
+            <mat-form-field>
+                <select matNativeControl>
+                    @for (user of usersFromHomeComponent; track user.id) {
+                        <option ngValue="user.userName">{{ user.userName }}</option>
+                    } @empty {
+                        <option value="0">No users found</option>
+                    }
+                </select>
+            </mat-form-field>
+
+            <div>
+                <mat-form-field>
+                    <input formControlName="password" matInput type="password" placeholder="Password" required>
+                </mat-form-field>
+            </div>
+
+            <div class="form-buttons">
+                <button mat-raised-button type="submit" aria-label="Sign Up">
+                    <span>Sign Up</span>
+                </button>
+                <button mat-raised-button aria-label="Sign Up" (click)="cancel()">
+                    <span>Cancel</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

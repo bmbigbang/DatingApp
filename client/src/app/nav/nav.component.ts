@@ -6,8 +6,7 @@ import { FormsModule, FormGroup, FormControl, ReactiveFormsModule } from '@angul
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AccountService } from '../_services/account.service';
-import { LoginRequest, LoginResponse } from '../types';
-import { Observable, of } from 'rxjs';
+import { LoginRequest } from '../types';
 import { AsyncPipe } from '@angular/common';
 
 @Component({
@@ -34,7 +33,6 @@ export class NavComponent implements OnInit {
         console.log(error);
       }
     });
-    console.log(this.loginForm.value);
   }
 
   logout() {
