@@ -2,6 +2,10 @@
     flex: 1 1 auto;
 }
 
+.active {
+    background-color: azure;
+}
+
 .login-form {
     display: flex;
     flex-direction: row;

@@ -2,15 +2,15 @@
     <h1>Dating App</h1>
     <span width="20px"></span>
     @if (accountService.currentUser$ | async) {
-        <button mat-button extended aria-label="Matches">
+        <button mat-button extended aria-label="Matches" routerLink="/members">
             <span>Matches</span>
             <mat-icon>favorite</mat-icon>
         </button>
-        <button mat-button extended aria-label="Lists">
+        <button mat-button extended aria-label="Lists" routerLink="/lists">
             <span>Lists</span>
             <mat-icon>menu</mat-icon>
         </button>
-        <button mat-button extended aria-label="Messages">
+        <button mat-button extended aria-label="Messages" routerLink="/messages">
             <span>Messages</span>
             <mat-icon>message</mat-icon>
         </button>

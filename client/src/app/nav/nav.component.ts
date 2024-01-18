@@ -8,12 +8,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AccountService } from '../_services/account.service';
 import { LoginRequest } from '../types';
 import { AsyncPipe } from '@angular/common';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
   imports: [MatToolbarModule, MatIconModule, MatButtonModule, FormsModule, MatInputModule,
-    MatFormFieldModule, ReactiveFormsModule, AsyncPipe],
+    MatFormFieldModule, ReactiveFormsModule, AsyncPipe, RouterOutlet, RouterLink],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss'
 })
@@ -23,12 +24,13 @@ export class NavComponent implements OnInit {
     password: new FormControl()
   });
 
-  constructor(public accountService: AccountService) { }
+  constructor(public accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void { }
 
   login() {
     this.accountService.login(this.loginForm.value as LoginRequest).subscribe({
+      next: () => this.router.navigateByUrl('/members'),
       error: (error) => {
         console.log(error);
       }
@@ -37,5 +39,6 @@ export class NavComponent implements OnInit {
 
   logout() {
     this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 }
