@@ -27,11 +27,11 @@
     } @else {
     <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()" autocomplete="off">
         <mat-form-field>
-            <input formControlName="userName" matInput type="text" placeholder="Username" required>
+            <input formControlName="userName" matInput type="text" placeholder="Username">
         </mat-form-field>
 
         <mat-form-field>
-            <input formControlName="password" matInput type="password" placeholder="Password" required>
+            <input formControlName="password" matInput type="password" placeholder="Password">
         </mat-form-field>
 
         <button mat-raised-button type="submit" aria-label="Login">
