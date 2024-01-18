@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-    <h1>Dating App</h1>
+    <h1 routerLink="/" class="logo">Dating App</h1>
     <span width="20px"></span>
     @if (accountService.currentUser$ | async) {
         <button mat-button extended aria-label="Matches" routerLink="/members">

@@ -2,8 +2,9 @@
     flex: 1 1 auto;
 }
 
-.active {
-    background-color: azure;
+.logo {
+    cursor: pointer;
+    margin-inline-end: 10px;
 }
 
 .login-form {
