@@ -32,9 +32,6 @@ export class HomeComponent implements OnInit {
       next: (response: any) => {
         this.users = response;
       },
-      error: (error) => {
-        console.log(error);
-      },
       complete: () => {}
     })
   }
