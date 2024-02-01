@@ -1,0 +1,10 @@
+<div class="container text-center" style="margin-top: 12px">
+    <h1>Server error</h1>
+    <ng-container *ngIf="error">
+        <h5 class="text-danger">{{ error.message }}</h5>
+        <code style="background-color: whitesmoke;">{{error.details}}</code>
+    </ng-container>
+    <button mat-raised-button aria-label="Back to home" routerLink="/">
+        <span>Return to home page</span>
+    </button>
+</div>
